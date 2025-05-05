@@ -1,4 +1,4 @@
-# Create your models here.
+# app/models.py
 from django.db import models
 
 class Cidade(models.Model):

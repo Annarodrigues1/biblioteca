@@ -1,4 +1,3 @@
-# app/models.py
 from django.db import models
 
 class Cidade(models.Model):
@@ -12,28 +11,6 @@ class Cidade(models.Model):
         verbose_name = "Cidade"
         verbose_name_plural = "Cidades"
 
-class Autor(models.Model):
-    nome = models.CharField(max_length=100, verbose_name="Nome do autor")
-    cidade = models.ForeignKey(Cidade, on_delete=models.CASCADE, verbose_name="Cidade do autor")
-
-    def __str__(self):
-        return self.nome
-
-    class Meta:
-        verbose_name = "Autor"
-        verbose_name_plural = "Autores"
-
-class Editora(models.Model):
-    nome = models.CharField(max_length=100, verbose_name="Nome da editora")
-    site = models.CharField(max_length=100, verbose_name="Site da editora")
-    cidade = models.ForeignKey(Cidade, on_delete=models.CASCADE, verbose_name="Cidade da editora")
-
-    def __str__(self):
-        return self.nome
-
-    class Meta:
-        verbose_name = "Editora"
-        verbose_name_plural = "Editoras"
 
 class Leitor(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Nome do leitor")
@@ -47,6 +24,7 @@ class Leitor(models.Model):
         verbose_name = "Leitor"
         verbose_name_plural = "Leitores"
 
+
 class Genero(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Gênero")
 
@@ -56,6 +34,21 @@ class Genero(models.Model):
     class Meta:
         verbose_name = "Gênero"
         verbose_name_plural = "Gêneros"
+
+
+class Autor(models.Model):
+    nome = models.CharField(max_length=100, verbose_name="Nome do autor")
+
+    def __str__(self):
+        return self.nome
+
+
+class Editora(models.Model):
+    nome = models.CharField(max_length=100, verbose_name="Nome da editora")
+
+    def __str__(self):
+        return self.nome
+
 
 class Livro(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Nome do livro")
